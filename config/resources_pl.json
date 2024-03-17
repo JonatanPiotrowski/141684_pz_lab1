@@ -4,5 +4,11 @@
     "return_book": "Zwróć książkę",
     "manage_users": "Zarządzaj użytkownikami",
     "add_user": "Dodaj użytkownika",
-    "delete_user": "Usuń użytkownika"
+    "delete_user": "Usuń użytkownika",
+    "add_book_title": "Tytuł książki",
+    "add_book_author": "Autor książki",
+    "book_added": "Książka została dodana",
+    "options_menu": "Opcje",
+    "change_language": "Zmień język",
+    "previous_option": "Powrót"
 }

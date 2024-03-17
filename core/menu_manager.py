@@ -50,3 +50,7 @@ class MenuManager:
 
     def show_all_books(self):
         self.app.books_manager.show_all_books()
+
+    #dodaj obsługę zmiany języka
+    def change_language(self):
+        pass
