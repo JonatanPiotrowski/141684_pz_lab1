@@ -4,5 +4,8 @@
     "return_book": "Return a book",
     "manage_users": "Manage users",
     "add_user": "Add a user",
-    "delete_user": "Delete a user"
+    "delete_user": "Delete a user",
+    "add_book_title": "Title of book",
+    "add_book_author": "Author of book",
+    "book_added": "A book was added"
 }

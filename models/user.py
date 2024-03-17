@@ -1,3 +1,5 @@
+from config.config import current_language
+
 class User:
     _id_counter = 1
 
@@ -11,4 +13,4 @@ class User:
         self.email = email
 
     def __repr__(self):
-        return f"User({self.id}, {self.first_name}, {self.last_name})"
+        return f"({self.id}, {self.first_name}, {self.last_name})"
