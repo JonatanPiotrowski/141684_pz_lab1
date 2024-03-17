@@ -1,0 +1,8 @@
+{
+    "welcome_message": "Welcome to the Library Management System",
+    "borrow_book": "Borrow a book",
+    "return_book": "Return a book",
+    "manage_users": "Manage users",
+    "add_user": "Add a user",
+    "delete_user": "Delete a user"
+}

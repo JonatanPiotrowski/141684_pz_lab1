@@ -1,0 +1,8 @@
+{
+    "welcome_message": "Witaj w Systemie Zarządzania Biblioteką",
+    "borrow_book": "Wypożycz książkę",
+    "return_book": "Zwróć książkę",
+    "manage_users": "Zarządzaj użytkownikami",
+    "add_user": "Dodaj użytkownika",
+    "delete_user": "Usuń użytkownika"
+}
