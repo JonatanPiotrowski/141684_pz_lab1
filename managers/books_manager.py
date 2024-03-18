@@ -12,11 +12,21 @@ class BooksManager:
         if new_book is not None:
             self.books.append(new_book)
         else:
-            print("Próba dodania niepoprawnej książki.")
+            print(f"{cl["add_book_err"]}")
         print(f"{cl["book_added"]}: {new_book}")
 
     def delete_book(self):
-        print("Usunięto książkę!")
+        try:
+            del_book_id = int(input(f"{cl["del_book_id"]}: "))
+            book_to_delete = next((book for book in self.books if book.id == del_book_id), None)
+            if book_to_delete:
+                self.books.remove(book_to_delete)
+                print(f"{cl["book_deleted"]}: {book_to_delete}")
+            else:
+                print(f"{cl["book_not_found"]}")
+        except ValueError:
+            print(f"{cl["invalid_input"]}")
+
 
     def modify_book(self):
         print("Zmodyfikowano książkę!")
@@ -26,4 +36,4 @@ class BooksManager:
             for b in self.books:
                 print(b)
         else:
-            print("Lista książek jest pusta.")
+            print(f"{cl["empty_book_list"]}")
