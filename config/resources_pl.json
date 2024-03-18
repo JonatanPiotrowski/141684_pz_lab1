@@ -1,5 +1,6 @@
 {
     "welcome_message": "Witaj w Systemie Zarządzania Biblioteką",
+    "choose_option": "Wybierz opcję",
     "borrow_book": "Wypożycz książkę",
     "return_book": "Zwróć książkę",
     "manage_users": "Zarządzaj użytkownikami",
@@ -16,5 +17,6 @@
     "book_deleted": "Usunięto książkę",
     "book_not_found": "Nie odnaleziono książki o podanym id",
     "invalid_input": "Wprowadzono niepoprawne dane",
-    "empty_book_list": "Lista książek jest pusta"
+    "empty_book_list": "Lista książek jest pusta",
+    "exit_app": "Wychodzenie z programu..."
 }

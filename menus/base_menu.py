@@ -1,3 +1,5 @@
+from config.config import current_language as cl
+
 class BaseMenu:
     def __init__(self, app):
         self.app = app
@@ -9,8 +11,8 @@ class BaseMenu:
 
     def run(self):
         self.display()
-        choice = int(input("Wybierz opcję: ")) - 1
-        if 0 <= choice < len(self.menu_items):
+        try:
+            choice = int(input(f"{cl["choose_option"]}: ")) - 1
             self.menu_items[choice].execute()
-        else:
-            print("Nieznana opcja, spróbuj ponownie.")
+        except IndexError:
+            print(f"{cl["invalid_input"]}")
