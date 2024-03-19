@@ -27,5 +27,10 @@
     "title": "tytuł",
     "author": "autor",
     "add_another_book": "Czy chcesz dodać kolejną książkę?",
-    "books_added_total": "Łącznie dodano książek"
+    "books_added_total": "Łącznie dodano książek",
+    "users_added_total": "Łącznie dodano użytkowników",
+    "user_added": "Dodano użytkownika",
+    "add_name": "Imię użytkownika",
+    "add_surname": "Nazwisko użytkownika",
+    "add_another_user": "Czy dodać kolejnego użytkownika?"
 }
