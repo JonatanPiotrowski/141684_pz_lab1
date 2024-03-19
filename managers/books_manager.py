@@ -6,14 +6,31 @@ class BooksManager:
         self.books = []
 
     def add_book(self):
-        title = input(f"{cl["add_book_title"]}: ")
-        author = input(f"{cl["add_book_author"]}: ")
-        new_book = Book(title, author)
-        if new_book is not None:
-            self.books.append(new_book)
+        book_or_books = self.collect_books()
+        if isinstance(book_or_books, list):
+            self.books.extend(book_or_books) 
+            print(f"{cl['books_added_total']}: {len(book_or_books)}")
         else:
-            print(f"{cl["add_book_err"]}")
-        print(f"{cl["book_added"]}: {new_book}")
+            self.books.append(book_or_books) 
+            print(f"{cl['book_added']}: {book_or_books}")
+
+    def collect_books(self):
+        books_to_add = []
+        add_more = True
+
+        while add_more:
+            title = input(f"{cl['add_book_title']}: ")
+            author = input(f"{cl['add_book_author']}: ")
+            new_book = Book(title, author)
+
+            if isinstance(new_book, Book):
+                books_to_add.append(new_book)
+                print(f"{cl['book_added']}: {title}")
+
+            add_another = input(f"{cl['add_another_book']} (y/n): ").lower()
+            add_more = add_another == 'y'
+
+        return books_to_add[0] if len(books_to_add) == 1 else books_to_add
 
     def delete_book(self):
         try:

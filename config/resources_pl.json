@@ -25,5 +25,7 @@
     "multiple_books_found": "Znaleziono kilka książek na podstawie podanych danych",
     "choose_book_to_modify": "Wybierz książkę do zmodyfikowania (id)",
     "title": "tytuł",
-    "author": "autor"
+    "author": "autor",
+    "add_another_book": "Czy chcesz dodać kolejną książkę?",
+    "books_added_total": "Łącznie dodano książek"
 }
