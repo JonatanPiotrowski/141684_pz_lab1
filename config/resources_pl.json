@@ -15,8 +15,15 @@
     "add_book_err": "Próba dodania niepoprawnej książki.",
     "del_book_id": "Podaj id książki do usunięcia z bazy",
     "book_deleted": "Usunięto książkę",
-    "book_not_found": "Nie odnaleziono książki o podanym id",
+    "book_not_found": "Nie odnaleziono książki",
     "invalid_input": "Wprowadzono niepoprawne dane",
     "empty_book_list": "Lista książek jest pusta",
-    "exit_app": "Wychodzenie z programu..."
+    "exit_app": "Wychodzenie z programu...",
+    "modify_book_choice": "Co chcesz zmienić? (wpisz tytuł lub autor)",
+    "book_modified": "Zaktualizowano książkę",
+    "modify_book_search": "Wyszukaj książkę do edycji (możesz podać id, tytuł lub autora)",
+    "multiple_books_found": "Znaleziono kilka książek na podstawie podanych danych",
+    "choose_book_to_modify": "Wybierz książkę do zmodyfikowania (id)",
+    "title": "tytuł",
+    "author": "autor"
 }

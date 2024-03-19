@@ -28,9 +28,8 @@ class BooksManager:
             print(f"{cl["invalid_input"]}")
 
 
-    #Do przerobienia jutro, zrobić bardziej user friendly za pomocą menu
     def modify_book(self):
-        search_query = input(f"{cl['modify_book_search']}: ")
+        search_query = input(f"{cl["modify_book_search"]}: ")
         try:
             search_id = int(search_query)
             books_found = [book for book in self.books if book.id == search_id]
@@ -38,7 +37,7 @@ class BooksManager:
             books_found = [book for book in self.books if search_query.lower() in book.title.lower() or search_query.lower() in book.author.lower()]
 
         if not books_found:
-            print(f"{cl['book_not_found']}")
+            print(f"{cl["book_not_found"]}")
             return
 
         if len(books_found) > 1:
@@ -50,18 +49,18 @@ class BooksManager:
         else:
             book_to_modify = books_found[0]
 
-        modify_choice = input(f"{cl['modify_book_choice']}: ").lower()
-        if modify_choice == 'title':
-            new_title = input(f"{cl['new_book_title']}: ")
+        modify_choice = input(f"{cl["modify_book_choice"]}: ").lower()
+        if modify_choice == cl["title"]:
+            new_title = input(f"{cl["add_book_title"]}: ")
             book_to_modify.title = new_title
-        elif modify_choice == 'author':
-            new_author = input(f"{cl['new_book_author']}: ")
+        elif modify_choice == cl["author"]:
+            new_author = input(f"{cl["add_book_author"]}: ")
             book_to_modify.author = new_author
         else:
-            print(f"{cl['invalid_input']}")
+            print(f"{cl["invalid_input"]}")
             return
 
-        print(f"{cl['book_modified']}: {book_to_modify}")
+        print(f"{cl["book_modified"]}: {book_to_modify}")
 
 
     def show_all_books(self):
