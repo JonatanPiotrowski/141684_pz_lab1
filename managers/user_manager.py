@@ -68,10 +68,10 @@ class UserManager:
 
         modify_choice = input(f"{cl['modify_user_choice']}: ").lower()
         if modify_choice == cl['first_name']:
-            new_first_name = input(f"{cl['add_user_first_name']}: ")
+            new_first_name = input(f"{cl['add_name']}: ")
             user_to_modify.first_name = new_first_name
         elif modify_choice == cl['last_name']:
-            new_last_name = input(f"{cl['add_user_last_name']}: ")
+            new_last_name = input(f"{cl['add_surname']}: ")
             user_to_modify.last_name = new_last_name
         else:
             print(f"{cl['invalid_input']}")
@@ -80,7 +80,7 @@ class UserManager:
         print(f"{cl['user_modified']}: {user_to_modify}")
 
     def show_all_users(self):
-        if self.books:
+        if self.users:
             for u in self.users:
                 print(u)
         else:

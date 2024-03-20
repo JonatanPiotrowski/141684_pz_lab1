@@ -32,5 +32,16 @@
     "user_added": "Dodano użytkownika",
     "add_name": "Imię użytkownika",
     "add_surname": "Nazwisko użytkownika",
-    "add_another_user": "Czy dodać kolejnego użytkownika?"
+    "add_another_user": "Czy dodać kolejnego użytkownika?",
+    "del_user_id": "Podaj id użytkownika do usunięcia",
+    "user_deleted": "Usunięto użytkownika",
+    "user_not_found": "Nie znaleziono użytkownika",
+    "modify_user_search": "Podaj id lub nazwisko użytkownika do edycji",
+    "multiple_users_found": "Znaleziono kilku użytkowników",
+    "choose_user_to_modify": "Wybierz użytkownika do modyfikacji",
+    "modify_user_choice": "Co chcesz zmienić? (imię lub nazwisko)",
+    "user_modified": "Zmodyfikowano dane",
+    "first_name": "imię",
+    "last_name": "nazwisko",
+    "empty_users_list": "Lista użytkowników jest pusta"
 }
