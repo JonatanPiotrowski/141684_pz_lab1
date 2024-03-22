@@ -65,5 +65,6 @@
     "book_borrow_failed": "Nie udało się wypożyczyć książki.",
     "enter_book_id_to_return": "Podaj ID książki do zwrotu:",
     "book_successfully_returned": "Zwrócono książkę.",
-    "book_return_failed": "Nie udało się zwrócić książki."
+    "book_return_failed": "Nie udało się zwrócić książki.",
+    "language_change_success": "Zmieniono język na Polski"
 }

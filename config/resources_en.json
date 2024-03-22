@@ -65,5 +65,6 @@
     "book_borrow_failed": "Failed to borrow the book.",
     "enter_book_id_to_return": "Enter the book id to return:",
     "book_successfully_returned": "The book has been returned.",
-    "book_return_failed": "Failed to return the book."
+    "book_return_failed": "Failed to return the book.",
+    "language_change_success": "Language changed to English"
 }
