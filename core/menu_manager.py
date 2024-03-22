@@ -54,6 +54,12 @@ class MenuManager:
     def show_all_users(self):
         self.app.user_manager.show_all_users()
 
+    def borrow_one_book(self):
+        self.app.borrow_books_manager.interact_borrow_book()
+
+    def return_one_book(self):
+        self.app.borrow_books_manager.interact_return_book()
+
     #dodaj obsługę menu opcji
     def manage_options(self):
         pass
