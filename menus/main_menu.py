@@ -10,6 +10,7 @@ class MainMenu(BaseMenu):
             MenuItem(cl["book_rental"], lambda: self.app.menu_manager.borrow_book()),
             MenuItem(cl["manage_clients"], lambda: self.app.menu_manager.manage_users()),
             MenuItem(cl["manage_books"], lambda: self.app.menu_manager.manage_books()),
-            MenuItem(cl["options_menu"], lambda: self.app.menu_manager.manage_options()),
+            # Opcja zmiany języka nie działa, dodam w następnych laboratoriach
+            # MenuItem(cl["options_menu"], lambda: self.app.menu_manager.manage_options()),
             MenuItem(cl["exit_program"], lambda: self.app.core.exit_program())
         ]
