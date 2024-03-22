@@ -35,12 +35,15 @@ class BorrowBooksManager:
         return True
 
     def interact_borrow_book(self):
-        book_id = int(input("Podaj ID książki do wypożyczenia: "))
-        user_id = int(input("Podaj ID użytkownika: "))
-        if self.borrow_book(book_id, user_id):
-            print("Wypożyczono książkę.")
-        else:
-            print("Nie udało się wypożyczyć książki.")
+        try:
+            book_id = int(input("Podaj ID książki do wypożyczenia: "))
+            user_id = int(input("Podaj ID użytkownika: "))
+            if self.borrow_book(book_id, user_id):
+                print("Wypożyczono książkę.")
+            else:
+                print("Nie udało się wypożyczyć książki.")
+        except ValueError:
+            print
 
     def interact_return_book(self):
         book_id = int(input("Podaj ID książki do zwrotu: "))

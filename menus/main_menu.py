@@ -7,9 +7,9 @@ class MainMenu(BaseMenu):
     def __init__(self, app):
         super().__init__(app)
         self.menu_items = [
-            MenuItem("Wypożyczalnia książek", lambda: self.app.menu_manager.borrow_book()),
-            MenuItem("Zarządzaj bazą klientów", lambda: self.app.menu_manager.manage_users()),
-            MenuItem("Zarządzaj bazą książek", lambda: self.app.menu_manager.manage_books()),
-            MenuItem(f"{cl["options_menu"]}", lambda: self.app.menu_manager.manage_options()),
-            MenuItem("Wyjście z programu", lambda: self.app.core.exit_program())
+            MenuItem(cl["book_rental"], lambda: self.app.menu_manager.borrow_book()),
+            MenuItem(cl["manage_clients"], lambda: self.app.menu_manager.manage_users()),
+            MenuItem(cl["manage_books"], lambda: self.app.menu_manager.manage_books()),
+            MenuItem(cl["options_menu"], lambda: self.app.menu_manager.manage_options()),
+            MenuItem(cl["exit_program"], lambda: self.app.core.exit_program())
         ]

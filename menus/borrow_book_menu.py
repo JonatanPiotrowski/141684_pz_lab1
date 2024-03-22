@@ -8,7 +8,7 @@ class BorrowBookMenu(BaseMenu):
     def __init__(self, app):
         super().__init__(app)
         self.menu_items = [
-            MenuItem("Wypożyczenie książki", lambda: self.app.menu_manager.borrow_one_book()),
-            MenuItem("Zwrot książki", lambda: self.app.menu_manager.return_one_book()),
+            MenuItem(cl["borrow_book"], lambda: self.app.menu_manager.borrow_one_book()),
+            MenuItem(cl["return_book"], lambda: self.app.menu_manager.return_one_book()),
             MenuItem(cl["previous_option"], lambda: self.app.menu_manager.switch_menu(MainMenu))
         ]
