@@ -6,7 +6,6 @@
     "options_menu": "Opcje",
     "change_language": "Zmień język",
     "previous_option": "Powrót",
-
     "book_rental": "Wypożyczalnia książek",
     "borrow_book": "Wypożycz książkę",
     "return_book": "Zwróć książkę",
@@ -30,7 +29,6 @@
     "choose_book_to_modify": "Wybierz książkę do zmodyfikowania (id)",
     "add_another_book": "Czy chcesz dodać kolejną książkę?",
     "books_added_total": "Łącznie dodano książek",
-    
     "manage_clients": "Zarządzaj bazą klientów",
     "manage_users": "Zarządzaj użytkownikami",
     "add_user": "Dodaj użytkownika",
@@ -51,10 +49,21 @@
     "modify_user_choice": "Co chcesz zmienić? (imię lub nazwisko)",
     "user_modified": "Zmodyfikowano dane",
     "users_added_total": "Łącznie dodano użytkowników",
-
     "exit_program": "Wyjście z programu",
     "title": "tytuł",
     "author": "autor",
     "first_name": "imię",
-    "last_name": "nazwisko"
+    "last_name": "nazwisko",
+    "invalid_book_or_user_id": "Nieprawidłowe ID książki lub użytkownika.",
+    "book_already_borrowed": "Książka jest już wypożyczona.",
+    "book_borrowed": "Książka {book_id} została wypożyczona przez użytkownika {user_id}.",
+    "book_not_borrowed": "Ta książka nie była wypożyczona.",
+    "book_returned": "Książka {book_id} została zwrócona.",
+    "enter_book_id_to_borrow": "Podaj ID książki do wypożyczenia:",
+    "enter_user_id": "Podaj ID użytkownika:",
+    "book_successfully_borrowed": "Wypożyczono książkę.",
+    "book_borrow_failed": "Nie udało się wypożyczyć książki.",
+    "enter_book_id_to_return": "Podaj ID książki do zwrotu:",
+    "book_successfully_returned": "Zwrócono książkę.",
+    "book_return_failed": "Nie udało się zwrócić książki."
 }

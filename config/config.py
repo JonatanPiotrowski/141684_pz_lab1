@@ -1,5 +1,6 @@
 import json
 
+
 def load_language_resources(language_code):
     file_path = f"config/resources_{language_code}.json"
     try:

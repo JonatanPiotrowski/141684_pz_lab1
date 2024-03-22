@@ -2,6 +2,8 @@ from menus.borrow_book_menu import BorrowBookMenu
 from menus.main_menu import MainMenu
 from menus.manage_books_menu import ManageBooksMenu
 from menus.manage_users_menu import ManageUsersMenu
+from menus.options_menu import OptionsMenu
+from config.config import change_language as cl
 
 class MenuManager:
     def __init__(self, app):
@@ -23,6 +25,9 @@ class MenuManager:
 
     def manage_books(self):
         self.switch_menu(ManageBooksMenu)
+
+    def manage_options(self):
+        self.switch_menu(OptionsMenu)
 
     def add_user(self):
         self.app.user_manager.add_user()
@@ -60,6 +65,6 @@ class MenuManager:
     def return_one_book(self):
         self.app.borrow_books_manager.interact_return_book()
 
-    #dodaj obsługę menu opcji
-    def manage_options(self):
-        pass
+    def change_language(self):
+        cl()
+
