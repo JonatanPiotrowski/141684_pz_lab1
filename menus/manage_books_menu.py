@@ -11,6 +11,6 @@ class ManageBooksMenu(BaseMenu):
             MenuItem(cl["add_book"], lambda: self.app.menu_manager.add_book()),
             MenuItem(cl["del_book"], lambda: self.app.menu_manager.delete_book()),
             MenuItem(cl["modify_book"], lambda: self.app.menu_manager.modify_book()),
-            MenuItem(cl["show_all_books"], lambda: self.app.menu_manager.show_all_books()),
+            MenuItem(cl["show_all_books"], lambda: self.app.menu_manager.fetch_all_books()),
             MenuItem(cl["previous_option"], lambda: self.app.menu_manager.switch_menu(MainMenu))
         ]

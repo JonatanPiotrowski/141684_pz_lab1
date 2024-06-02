@@ -53,8 +53,8 @@ class MenuManager:
     def modify_book(self):
         self.app.books_manager.modify_book()
 
-    def show_all_books(self):
-        self.app.books_manager.show_all_books()
+    def fetch_all_books(self):
+        self.app.books_manager.fetch_all_books()
 
     def fetch_all_users(self):
         self.app.user_manager.fetch_all_users()

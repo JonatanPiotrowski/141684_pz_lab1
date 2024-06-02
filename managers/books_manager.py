@@ -15,7 +15,7 @@ class BooksManager:
             print(f"{cl['books_added_total']}: {len(book_or_books)}")
         else:
             book = book_or_books
-            self.database.add_object('books', ['title', 'author', 'published_date', 'isbn'], [book.title, book.author, book.published_date, book.isbn])
+            self.database.add_object('books', ['title', 'author'], [book.title, book.author])
             print(f"{cl['book_added']}: {book}")
 
     def collect_books(self):
@@ -25,9 +25,8 @@ class BooksManager:
         while add_more:
             title = input(f"{cl['add_book_title']}: ")
             author = input(f"{cl['add_book_author']}: ")
-            published_date = input(f"{cl['add_book_published_date']}: ")
-            isbn = input(f"{cl['add_book_isbn']}: ")
-            new_book = Book(title, author, published_date, isbn)
+
+            new_book = Book(title, author)
 
             if isinstance(new_book, Book):
                 books_to_add.append(new_book)
@@ -51,9 +50,7 @@ class BooksManager:
             book_id = int(input(f"{cl['modify_book_id']}: "))
             new_title = input(f"{cl['modify_new_title']}: ")
             new_author = input(f"{cl['modify_new_author']}: ")
-            new_published_date = input(f"{cl['modify_new_published_date']}: ")
-            new_isbn = input(f"{cl['modify_new_isbn']}: ")
-            self.database.update_object('books', book_id, ['title', 'author', 'published_date', 'isbn'], [new_title, new_author, new_published_date, new_isbn])
+            self.database.update_object('books', book_id, ['title', 'author'], [new_title, new_author])
             print(f"{cl['book_modified']}: {book_id}")
         except ValueError:
             print(f"{cl['invalid_input']}")

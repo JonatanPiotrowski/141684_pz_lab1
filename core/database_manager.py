@@ -17,9 +17,7 @@ class DatabaseManager:
         cursor.execute('''CREATE TABLE IF NOT EXISTS books (
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
                             title TEXT NOT NULL,
-                            author TEXT NOT NULL,
-                            published_date TEXT NOT NULL,
-                            isbn TEXT NOT NULL
+                            author TEXT NOT NULL
                           )''')
         
         cursor.execute('''CREATE TABLE IF NOT EXISTS borrow_records (

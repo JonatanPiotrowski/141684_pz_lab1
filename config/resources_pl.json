@@ -69,5 +69,11 @@
     "language_change_success": "Zmieniono język na Polski",
     "add_email": "Podaj email",
     "add_password": "Podaj haslo",
-    "modify_user_id": "modify_user_id"
+    "modify_user_id": "Podaj id użytkownika do modyfikacji",
+    "modify_new_username": "Podaj nowy login",
+    "modify_new_email": "podaj nowy email",
+    "modify_new_password": "podaj nowe hasło",
+    "modify_book_id": "Podaj id książki do modyfikacji",
+    "modify_new_title": "Podaj nowy tytuł",
+    "modify_new_author": "Podaj nowego autora"
 }
