@@ -56,8 +56,8 @@ class MenuManager:
     def show_all_books(self):
         self.app.books_manager.show_all_books()
 
-    def show_all_users(self):
-        self.app.user_manager.show_all_users()
+    def fetch_all_users(self):
+        self.app.user_manager.fetch_all_users()
 
     def borrow_one_book(self):
         self.app.borrow_books_manager.interact_borrow_book()

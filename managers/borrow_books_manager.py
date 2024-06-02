@@ -3,35 +3,43 @@ from models.book import Book
 from managers.user_manager import UserManager
 from managers.books_manager import BooksManager
 from config.config import current_language as cl
+from core.database_manager import DatabaseManager
 
 class BorrowBooksManager:
     def __init__(self, user_manager: UserManager, books_manager: BooksManager):
         self.user_manager = user_manager
         self.books_manager = books_manager
-        self.borrowed_books = {}
+        self.database = DatabaseManager
+        self.database.initialize_db()
 
     def borrow_book(self, book_id, user_id):
-        user = next((user for user in self.user_manager.users if user.id == user_id), None)
-        book = next((book for book in self.books_manager.books if book.id == book_id), None)
+        user = self.database.fetch_all_objects('users')
+        user = next((u for u in user if u[0] == user_id), None)
+        book = self.database.fetch_all_objects('books')
+        book = next((b for b in book if b[0] == book_id), None)
 
         if not user or not book:
             print(cl["invalid_book_or_user_id"])
             return False
 
-        if book_id in self.borrowed_books:
+        borrowed_books = self.database.fetch_all_objects('borrow_records')
+        if any(record[1] == user_id and record[2] == book_id for record in borrowed_books):
             print(cl["book_already_borrowed"])
             return False
 
-        self.borrowed_books[book_id] = user_id
+        self.database.add_object('borrow_records', ['user_id', 'book_id', 'borrow_date'], [user_id, book_id, '2024-01-01'])  # Przykładowa data
         print(cl["book_borrowed"].format(book_id=book_id, user_id=user_id))
         return True
 
     def return_book(self, book_id):
-        if book_id not in self.borrowed_books:
+        borrowed_books = self.database.fetch_all_objects('borrow_records')
+        borrow_record = next((record for record in borrowed_books if record[2] == book_id), None)
+
+        if not borrow_record:
             print(cl["book_not_borrowed"])
             return False
 
-        del self.borrowed_books[book_id]
+        self.database.delete_object('borrow_records', borrow_record[0])
         print(cl["book_returned"].format(book_id=book_id))
         return True
 
