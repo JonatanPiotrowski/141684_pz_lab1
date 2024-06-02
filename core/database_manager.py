@@ -6,7 +6,6 @@ class DatabaseManager:
         connection = sqlite3.connect('app_database.db')
         cursor = connection.cursor()
         
-        # Create tables if they do not exist
         cursor.execute('''CREATE TABLE IF NOT EXISTS users (
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
                             username TEXT NOT NULL,
