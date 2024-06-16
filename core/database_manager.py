@@ -2,8 +2,8 @@ import sqlite3
 
 class DatabaseManager:
     @staticmethod
-    def initialize_db():
-        connection = sqlite3.connect('app_database.db')
+    def initialize_db(db_path='app_database.db'):
+        connection = sqlite3.connect(db_path)
         cursor = connection.cursor()
         
         cursor.execute('''CREATE TABLE IF NOT EXISTS users (
@@ -33,8 +33,8 @@ class DatabaseManager:
         connection.close()
     
     @staticmethod
-    def add_object(table, columns, values):
-        connection = sqlite3.connect('app_database.db')
+    def add_object(table, columns, values, db_path='app_database.db'):
+        connection = sqlite3.connect(db_path)
         cursor = connection.cursor()
         
         columns_str = ', '.join(columns)
@@ -46,8 +46,8 @@ class DatabaseManager:
         connection.close()
     
     @staticmethod
-    def delete_object(table, object_id):
-        connection = sqlite3.connect('app_database.db')
+    def delete_object(table, object_id, db_path='app_database.db'):
+        connection = sqlite3.connect(db_path)
         cursor = connection.cursor()
         
         cursor.execute(f'DELETE FROM {table} WHERE id = ?', (object_id,))
@@ -56,8 +56,8 @@ class DatabaseManager:
         connection.close()
     
     @staticmethod
-    def update_object(table, object_id, columns, values):
-        connection = sqlite3.connect('app_database.db')
+    def update_object(table, object_id, columns, values, db_path='app_database.db'):
+        connection = sqlite3.connect(db_path)
         cursor = connection.cursor()
         
         set_clause = ', '.join([f'{col} = ?' for col in columns])
@@ -68,8 +68,8 @@ class DatabaseManager:
         connection.close()
     
     @staticmethod
-    def fetch_all_objects(table):
-        connection = sqlite3.connect('app_database.db')
+    def fetch_all_objects(table, db_path='app_database.db'):
+        connection = sqlite3.connect(db_path)
         cursor = connection.cursor()
         
         cursor.execute(f'SELECT * FROM {table}')

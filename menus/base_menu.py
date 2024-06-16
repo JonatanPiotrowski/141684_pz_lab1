@@ -12,7 +12,7 @@ class BaseMenu:
     def run(self):
         self.display()
         try:
-            choice = int(input(f"{cl["choose_option"]}: ")) - 1
+            choice = int(input(f"{cl['choose_option']}: ")) - 1
             self.menu_items[choice].execute()
-        except IndexError:
-            print(f"{cl["invalid_input"]}")
+        except (IndexError, ValueError):
+            print(f"{cl['invalid_input']}")
