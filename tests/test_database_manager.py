@@ -24,6 +24,8 @@ def setup_db():
             except PermissionError:
                 pass
 
+# Classic Tests
+
 def test_initialize_db(setup_db):
     connection = sqlite3.connect(setup_db)
     cursor = connection.cursor()
@@ -114,3 +116,46 @@ def test_fetch_all_objects(setup_db):
     assert len(users) == 2
     assert users[0][1] == 'testuser1'
     assert users[1][1] == 'testuser2'
+
+# Parameterized Tests
+
+@pytest.mark.parametrize("username, email, password", [
+    ("paramuser1", "paramuser1@example.com", "password1"),
+    ("paramuser2", "paramuser2@example.com", "password2"),
+    ("paramuser3", "paramuser3@example.com", "password3")
+])
+def test_add_object_parametrized(setup_db, username, email, password):
+    # Add a user with parameterized data
+    DatabaseManager.add_object('users', ['username', 'email', 'password'], [username, email, password], setup_db)
+
+    connection = sqlite3.connect(setup_db)
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * FROM users WHERE username = ?', (username,))
+    user = cursor.fetchone()
+
+    assert user is not None
+    assert user[1] == username
+    assert user[2] == email
+
+    connection.close()
+
+@pytest.mark.parametrize("username, email, password", [
+    ("fetchuser1", "fetchuser1@example.com", "password1"),
+    ("fetchuser2", "fetchuser2@example.com", "password2"),
+    ("fetchuser3", "fetchuser3@example.com", "password3")
+])
+def test_fetch_all_objects_parametrized(setup_db, username, email, password):
+    # Add a user with parameterized data
+    DatabaseManager.add_object('users', ['username', 'email', 'password'], [username, email, password], setup_db)
+
+    # Fetch all users and check the parameterized user is present
+    users = DatabaseManager.fetch_all_objects('users', setup_db)
+
+    found_user = False
+    for user in users:
+        if user[1] == username and user[2] == email:
+            found_user = True
+            break
+
+    assert found_user

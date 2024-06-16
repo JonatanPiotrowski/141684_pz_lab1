@@ -11,7 +11,7 @@ class BooksManager:
         book_or_books = self.collect_books()
         if isinstance(book_or_books, list):
             for book in book_or_books:
-                self.database.add_object('books', ['title', 'author', 'published_date', 'isbn'], [book.title, book.author, book.published_date, book.isbn])
+                self.database.add_object('books', ['title', 'author'], [book.title, book.author])
             print(f"{cl['books_added_total']}: {len(book_or_books)}")
         else:
             book = book_or_books
