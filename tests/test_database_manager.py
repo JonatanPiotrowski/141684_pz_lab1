@@ -2,35 +2,29 @@ import pytest
 import sqlite3
 import os
 import tempfile
-from core.database_manager import DatabaseManager  # Adjust this import based on your actual module name
+from core.database_manager import DatabaseManager 
 
 @pytest.fixture(scope='function')
 def setup_db():
-    # Create a temporary file for the test database
     temp_db = tempfile.NamedTemporaryFile(delete=False)
     test_db = temp_db.name
     temp_db.close()
 
     try:
-        # Initialize the database using the temporary file
         DatabaseManager.initialize_db(test_db)
         yield test_db
 
     finally:
-        # Ensure the database connection is closed and the file is removed
         if os.path.exists(test_db):
             try:
                 os.remove(test_db)
             except PermissionError:
                 pass
 
-# Classic Tests
-
 def test_initialize_db(setup_db):
     connection = sqlite3.connect(setup_db)
     cursor = connection.cursor()
 
-    # Check if tables are created
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")
     assert cursor.fetchone() is not None
 
@@ -43,7 +37,6 @@ def test_initialize_db(setup_db):
     connection.close()
 
 def test_add_object(setup_db):
-    # Add a user
     DatabaseManager.add_object('users', ['username', 'email', 'password'], ['testuser', 'testuser@example.com', 'password'], setup_db)
 
     connection = sqlite3.connect(setup_db)
@@ -59,10 +52,7 @@ def test_add_object(setup_db):
     connection.close()
 
 def test_delete_object(setup_db):
-    # Add a user
     DatabaseManager.add_object('users', ['username', 'email', 'password'], ['testuser', 'testuser@example.com', 'password'], setup_db)
-
-    # Delete the user
     connection = sqlite3.connect(setup_db)
     cursor = connection.cursor()
     cursor.execute('SELECT id FROM users WHERE username = ?', ('testuser',))
@@ -82,10 +72,8 @@ def test_delete_object(setup_db):
     connection.close()
 
 def test_update_object(setup_db):
-    # Add a user
     DatabaseManager.add_object('users', ['username', 'email', 'password'], ['testuser', 'testuser@example.com', 'password'], setup_db)
 
-    # Update the user
     connection = sqlite3.connect(setup_db)
     cursor = connection.cursor()
     cursor.execute('SELECT id FROM users WHERE username = ?', ('testuser',))
@@ -106,18 +94,15 @@ def test_update_object(setup_db):
     connection.close()
 
 def test_fetch_all_objects(setup_db):
-    # Add users
     DatabaseManager.add_object('users', ['username', 'email', 'password'], ['testuser1', 'testuser1@example.com', 'password'], setup_db)
     DatabaseManager.add_object('users', ['username', 'email', 'password'], ['testuser2', 'testuser2@example.com', 'password'], setup_db)
 
-    # Fetch all users
     users = DatabaseManager.fetch_all_objects('users', setup_db)
 
     assert len(users) == 2
     assert users[0][1] == 'testuser1'
     assert users[1][1] == 'testuser2'
 
-# Parameterized Tests
 
 @pytest.mark.parametrize("username, email, password", [
     ("paramuser1", "paramuser1@example.com", "password1"),
@@ -125,7 +110,6 @@ def test_fetch_all_objects(setup_db):
     ("paramuser3", "paramuser3@example.com", "password3")
 ])
 def test_add_object_parametrized(setup_db, username, email, password):
-    # Add a user with parameterized data
     DatabaseManager.add_object('users', ['username', 'email', 'password'], [username, email, password], setup_db)
 
     connection = sqlite3.connect(setup_db)
@@ -146,10 +130,8 @@ def test_add_object_parametrized(setup_db, username, email, password):
     ("fetchuser3", "fetchuser3@example.com", "password3")
 ])
 def test_fetch_all_objects_parametrized(setup_db, username, email, password):
-    # Add a user with parameterized data
     DatabaseManager.add_object('users', ['username', 'email', 'password'], [username, email, password], setup_db)
 
-    # Fetch all users and check the parameterized user is present
     users = DatabaseManager.fetch_all_objects('users', setup_db)
 
     found_user = False

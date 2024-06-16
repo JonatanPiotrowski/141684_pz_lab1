@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock, call
 from models.user import User
-from managers.user_manager import UserManager  # Zakładamy, że kod UserManager znajduje się w pliku user_manager.py
+from managers.user_manager import UserManager 
 
 @pytest.fixture
 def user_manager():
@@ -12,8 +12,6 @@ def user_manager():
 @pytest.fixture
 def mock_user():
     return User(username='testuser', email='test@example.com', password='password123')
-
-# Klasyczne testy
 
 def test_add_single_user(user_manager, mock_user):
     with patch('builtins.input', side_effect=['testuser', 'test@example.com', 'password123', 'n']):
@@ -38,8 +36,6 @@ def test_fetch_all_users(user_manager):
         user_manager.fetch_all_users()
         calls = [call(mock_users[0]), call(mock_users[1])]
         mock_print.assert_has_calls(calls)
-
-# Testy parametryczne
 
 @pytest.mark.parametrize("user_input, expected_calls", [
     (['testuser1', 'test1@example.com', 'password1', 'y', 'testuser2', 'test2@example.com', 'password2', 'n'],

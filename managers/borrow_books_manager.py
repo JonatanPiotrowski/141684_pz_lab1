@@ -18,16 +18,19 @@ class BorrowBooksManager:
         book = self.database.fetch_all_objects('books')
         book = next((b for b in book if b[0] == book_id), None)
 
+        print(f"Debug: user={user}, book={book}")  
+
         if not user or not book:
             print(cl["invalid_book_or_user_id"])
             return False
 
         borrowed_books = self.database.fetch_all_objects('borrow_records')
+        print(f"Debug: borrowed_books={borrowed_books}") 
         if any(record[1] == user_id and record[2] == book_id for record in borrowed_books):
             print(cl["book_already_borrowed"])
             return False
 
-        self.database.add_object('borrow_records', ['user_id', 'book_id', 'borrow_date'], [user_id, book_id, '2024-01-01'])  # Przykładowa data
+        self.database.add_object('borrow_records', ['user_id', 'book_id', 'borrow_date'], [user_id, book_id, '2024-01-01'])
         print(cl["book_borrowed"].format(book_id=book_id, user_id=user_id))
         return True
 
